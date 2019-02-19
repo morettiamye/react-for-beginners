@@ -6,15 +6,28 @@ import Order from "./Order";
 
 
 class App extends React.Component{
+    state = {
+        fishes: {},
+        order: {}
+    }
+
+    addFish = fish => {
+       const fishes = {...this.state.fishes};
+        fishes[`fish${Date.now()}`] = fish;
+        this.setState({
+            fishes: fishes
+        })        
+    }
+
     render(){
         return (
             <div className="catch-of-the-day">
             <div className="menu">
                 <Header tagline="Fresh Seafood Market"/>
-            <p> hey! </p>
+            
             </div>
             <Order />
-            <Inventory />
+            <Inventory addFish={this.addFish} />
             </div>
         )
     }
