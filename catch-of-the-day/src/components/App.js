@@ -3,6 +3,7 @@ import React from "react";
 import Header from "./Header";
 import Inventory from "./Inventory";
 import Order from "./Order";
+import sampleFishes from "../sample-fishes"
 
 
 class App extends React.Component{
@@ -19,6 +20,11 @@ class App extends React.Component{
         })        
     }
 
+    loadSamples = () => {
+        // console.log("This fish tho!");
+        this.setState({fishes: sampleFishes});
+    }
+
     render(){
         return (
             <div className="catch-of-the-day">
@@ -27,7 +33,7 @@ class App extends React.Component{
             
             </div>
             <Order />
-            <Inventory addFish={this.addFish} />
+            <Inventory addFish={this.addFish} loadSamples={this.loadSamples} />
             </div>
         )
     }
