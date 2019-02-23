@@ -10,7 +10,7 @@ const firebaseApp =  firebase.initializeApp({
 
 const base = Rebase.createClass(firebaseApp.database());
 
-// This is a named export
+
 export {firebaseApp};
 
 export default base;
